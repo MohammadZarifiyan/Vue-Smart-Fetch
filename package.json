@@ -1,0 +1,30 @@
+{
+  "name": "vue-smart-fetch",
+  "description": "Reactive HTTP request manager built on top of axios for Vue 3.",
+  "version": "1.0.0",
+  "keywords": [
+    "vue",
+    "fetch",
+    "axios",
+    "request",
+    "polling"
+  ],
+  "author": "Mohammad Zarifiyan",
+  "license": "SEE LICENSE IN LICENSE",
+  "private": false,
+  "type": "module",
+  "module": "index.js",
+  "peerDependencies": {
+    "vue": "^3",
+    "axios": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammadZarifiyan/vue-smart-fetch.git"
+  },
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ]
+}
