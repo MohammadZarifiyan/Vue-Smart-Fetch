@@ -1,7 +1,7 @@
 {
   "name": "vue-smart-fetch",
   "description": "Reactive HTTP request manager built on top of axios for Vue 3.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "vue",
     "fetch",
@@ -13,7 +13,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "private": false,
   "type": "module",
-  "module": "index.js",
+  "exports": "./index.js",
   "peerDependencies": {
     "vue": "^3",
     "axios": "*"
