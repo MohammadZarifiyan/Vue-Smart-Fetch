@@ -98,7 +98,7 @@ function createFetch(axiosInstance) {
                 return response;
             }
             catch (error) {
-                if (!axios.isCancel(error)) {
+                if (axios.isAxiosError) {
                     state.error = error;
                     state.status = FetchStatus.Done;
 
@@ -106,14 +106,17 @@ function createFetch(axiosInstance) {
                         onError(fetchResult);
                     }
                 }
-
-                throw error;
+                else {
+                    throw error;
+                }
             }
             finally {
-                const pollTiming = typeof poll === 'function' ? poll(fetchResult) : poll;
+                if (typeof window === 'object') {
+                    const pollTiming = typeof poll === 'function' ? poll(fetchResult) : poll;
 
-                if (pollTiming >= 0) {
-                    pollTimer = setTimeout(() => runFetch(currentConfig), pollTiming);
+                    if (pollTiming >= 0) {
+                        pollTimer = setTimeout(() => runFetch(currentConfig), pollTiming);
+                    }
                 }
 
                 if (typeof onFinish === 'function') {
@@ -122,7 +125,7 @@ function createFetch(axiosInstance) {
             }
         }
 
-        if (!lazy && hasUrl(currentConfig)) {
+        if (!lazy && hasUrl(currentConfig) && typeof window === 'object') {
             runFetch(currentConfig);
         }
         else {
